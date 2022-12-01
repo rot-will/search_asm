@@ -1,3 +1,4 @@
+#!/bin/python3
 from pwn import *
 import sys
 
@@ -54,8 +55,8 @@ def error(out_data,reas):
     exit(0)
 
 def parse_arg():
-    argv=sys.argv
-    if (argv.count('-h') != 0 or argv.count('--help') != 0):
+    argv=sys.argv[1:]
+    if (argv.count('-h') != 0 or argv.count('--help') != 0) or len(argv)==0:
         helper()
         exit(0)
     i=0
